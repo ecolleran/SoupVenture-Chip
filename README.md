@@ -16,11 +16,17 @@ Welcome to our Souperia! Let’s get soupy!
 Users are presented with a series of questions to define their soup preferences. These questions narrow down options, ensuring personalized soup recommendations. The categories include:
 
 **Dietary Restrictions:** Users can specify if they are gluten-free, vegetarian, or have no dietary restrictions.
+
 **Soup Temperature:** Users choose whether they prefer cold or hot soups.
+
 **Color Preference:** Options include yellow, green, or red soups.
+
 **Texture Preference:** Users specify whether they like chunky or smooth soups.
+
 **Country of Origin:** Users indicate whether they are interested in soups from Mexico, France, Texas, or Italy.
+
 **Noodle Preference:** Users specify whether they want soups with noodles or not.
+
 **Failsafe Bean Soup:** A failsafe ensures a recommendation of black bean soup if there’s an issue or logical error.
 
 **Inputs (Significance of inputs):**
