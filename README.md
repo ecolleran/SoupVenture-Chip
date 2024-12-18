@@ -1,15 +1,17 @@
 **CSE 30342 - Digital Integrated Circuits - University of Notre Dame 
-Final Project - “SoupVenture”
+Final Project - “SoupVenture”**
 
 Emily Colleran - ecoller2@nd.edu
-Maggie Dempsey - mdempse4@nd.edu
-Daniel Harrison - dharri23@nd.edu
-Mary Menger - mmenger@nd.edu**
 
+Maggie Dempsey - mdempse4@nd.edu
+
+Daniel Harrison - dharri23@nd.edu
+
+Mary Menger - mmenger@nd.edu
+
+**Welcome to our Souperia! Let’s get soupy!**
 
 SoupVenture is a state machine project designed to provide personalized soup recommendations. By answering a series of questions about preferences such as diet, temperature, texture, and more, users receive four tailored soup suggestions from a curated list of 16 options.
-
-Welcome to our Souperia! Let’s get soupy!
 
 **How it works:**
 
@@ -29,6 +31,7 @@ Users are presented with a series of questions to define their soup preferences.
 
 **Failsafe Bean Soup:** A failsafe ensures a recommendation of black bean soup if there’s an issue or logical error.
 
+
 **Inputs (Significance of inputs):**
 
 Clock (clk) (Controls state transitions and starts at 0)
@@ -42,27 +45,31 @@ noodle (0: No 1: Yes)
 
 The internal register soupcounter keeps track of the number of recommendations assigned, ensuring the system generates exactly four soups.
 
+
 **Outputs**
 
 SoupVenture generates four soup recommendations as four 4-bit outputs: soup1, soup2, soup3, and soup4. Each soup has a unique 4-bit identifier corresponding to one of 16 possible soups.
 The soups include Chicken Noodle Soup, Chili, Tomato Soup, Celery Soup, Broccoli Cheddar Soup, Taco Soup, Black Bean Soup, Lobster Bisque, Sausage Tortellini Soup, Ramen, Italian Wedding Soup, French Onion Soup, Butternut Squash Soup, Lentil Soup, Gazpacho, and Pea Soup. 
 
+
+
 **State Transitions**
 SoupVenture operates via a finite state machine (FSM) with nine states:
-Start State: The system initializes soup recommendations and clears all registers. The soupcounter is set to zero, and the machine transitions to the diet_state.
 
-Dietary Restrictions State (diet_state): This state eliminates soups that don’t fit dietary restrictions. Gluten-free users avoid soups like French Onion and Chicken Noodle, while vegetarian users avoid Lobster Bisque and Sausage Tortellini Soup. After filtering, the machine transitions to the temp_state unless the soupcounter reaches three, in which case it moves directly to the finish state.
+**Start State:** The system initializes soup recommendations and clears all registers. The soupcounter is set to zero, and the machine transitions to the diet_state.
 
-Temperature State (temp_state): In this state, the system recommends soups based on the user’s temperature preference. For cold soups, options like Gazpacho and Pea Soup are suggested. Hot soup lovers are directed to the texture_state.
+**Dietary Restrictions State (diet_state):** This state eliminates soups that don’t fit dietary restrictions. Gluten-free users avoid soups like French Onion and Chicken Noodle, while vegetarian users avoid Lobster Bisque and Sausage Tortellini Soup. After filtering, the machine transitions to the temp_state unless the soupcounter reaches three, in which case it moves directly to the finish state.
 
-Color Preference State (color_state): Soups are filtered based on the user’s preferred color. For yellow soups, options such as Butternut Squash and Broccoli Cheddar are recommended. For green soups, choices like Celery Soup and Pea Soup are offered. After this state, the system transitions to the country_state unless three soups have already been recommended.
+**Temperature State (temp_state):** In this state, the system recommends soups based on the user’s temperature preference. For cold soups, options like Gazpacho and Pea Soup are suggested. Hot soup lovers are directed to the texture_state.
 
-Texture State (texture_state): Chunky soups like Chili are recommended for users who select chunky textures. Smooth soup lovers receive options such as Tomato Soup.
+**Color Preference State (color_state):** Soups are filtered based on the user’s preferred color. For yellow soups, options such as Butternut Squash and Broccoli Cheddar are recommended. For green soups, choices like Celery Soup and Pea Soup are offered. After this state, the system transitions to the country_state unless three soups have already been recommended.
 
-Country of Origin State (country_state): Soups are recommended based on the user’s preferred region. Mexican soups include Taco Soup, French soups include French Onion Soup, Texan soups include Chili, and Italian soups include Italian Wedding Soup.
+**Texture State (texture_state):** Chunky soups like Chili are recommended for users who select chunky textures. Smooth soup lovers receive options such as Tomato Soup.
 
-Noodle Preference State (noodle_state): For users who select soups with noodles, options like Chicken Noodle Soup, Ramen, and Sausage Tortellini Soup are prioritized. The system transitions to the bean_state unless three soups have been selected.
+**Country of Origin State (country_state):** Soups are recommended based on the user’s preferred region. Mexican soups include Taco Soup, French soups include French Onion Soup, Texan soups include Chili, and Italian soups include Italian Wedding Soup.
 
-Failsafe State (bean_state): To ensure the process doesn’t fail, the system recommends soups such as Black Bean Soup or Chili as backups. This state helps avoid logical errors and ensures the soupcounter reaches four.
+**Noodle Preference State (noodle_state):** For users who select soups with noodles, options like Chicken Noodle Soup, Ramen, and Sausage Tortellini Soup are prioritized. The system transitions to the bean_state unless three soups have been selected.
+
+**Failsafe State (bean_state):** To ensure the process doesn’t fail, the system recommends soups such as Black Bean Soup or Chili as backups. This state helps avoid logical errors and ensures the soupcounter reaches four.
 Finish State: Once four soups are assigned, the machine resets to the start state, allowing for a new round of soup recommendations.
 
